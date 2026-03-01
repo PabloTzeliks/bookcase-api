@@ -36,8 +36,8 @@ public class BookService {
         var loggedUser = userRepository.findByEmail(emailLogin)
                 .orElseThrow(() -> new BusinessRuleException("User does not have access."));
 
-        var book = bookRepository.findByIsbn(request.bookRequest().isbn())
-                .orElseGet(() -> bookRepository.save(mapper.toDomain(request.bookRequest(), null)));
+        var book = bookRepository.findByIsbn(request.isbn())
+                .orElseGet(() -> bookRepository.save(mapper.toDomain(request, null)));
 
         var relation = relationalRepository.save(new UserBook(
                 null,
