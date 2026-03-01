@@ -5,6 +5,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.validation.constraints.Max;
 import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
 import org.hibernate.validator.constraints.URL;
 
 public record AddNewBookRequest(
@@ -26,11 +27,10 @@ public record AddNewBookRequest(
         @JsonProperty("thumbnail_url")
         String thumbnailUrl,
 
-        @NotBlank
+        @NotNull
         @JsonProperty("status")
         BookStatus status,
 
-        @NotBlank
         @Min(1)
         @Max(5)
         @JsonProperty("rating")

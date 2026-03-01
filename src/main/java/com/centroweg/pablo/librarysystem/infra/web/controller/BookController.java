@@ -3,6 +3,7 @@ package com.centroweg.pablo.librarysystem.infra.web.controller;
 import com.centroweg.pablo.librarysystem.app.dto.AddNewBookRequest;
 import com.centroweg.pablo.librarysystem.app.dto.BookResponse;
 import com.centroweg.pablo.librarysystem.app.service.BookService;
+import jakarta.validation.Valid;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
@@ -24,7 +25,7 @@ public class BookController {
     @PostMapping
     public ResponseEntity<BookResponse> add(
             @AuthenticationPrincipal UserDetails userDetails,
-            @RequestBody AddNewBookRequest request) {
+            @Valid @RequestBody AddNewBookRequest request) {
 
         return ResponseEntity.status(HttpStatus.CREATED).body(service.save(request, userDetails.getUsername()));
     }

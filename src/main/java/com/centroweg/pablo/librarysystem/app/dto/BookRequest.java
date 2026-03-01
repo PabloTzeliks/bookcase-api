@@ -3,6 +3,7 @@ package com.centroweg.pablo.librarysystem.app.dto;
 import com.centroweg.pablo.librarysystem.domain.BookStatus;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
 import org.hibernate.validator.constraints.URL;
 
 public record BookRequest(
@@ -23,7 +24,7 @@ public record BookRequest(
         @JsonProperty("thumbnail_url")
         String thumbnailUrl,
 
-        @NotBlank
+        @NotNull
         @JsonProperty("status")
         BookStatus status
 ) { }
