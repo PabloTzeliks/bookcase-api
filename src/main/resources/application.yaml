@@ -1,6 +1,6 @@
 spring:
   datasource:
-    url: jdbc:mysql://localhost:3306/simple_db
+    url: jdbc:mysql://host.docker.internal:3306/simple_db
     username: db_user
     password: db_pass
     driver-class-name: com.mysql.cj.jdbc.Driver
