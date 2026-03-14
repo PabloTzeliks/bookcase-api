@@ -9,4 +9,7 @@ import java.util.List;
 public interface JpaUserBookRepository extends JpaRepository<UserBook, Long> {
 
     List<UserBook> findByUser(User user);
+
+    // Testando implementação com IN
+    List<UserBook> findByIdIn(List<Long> ids);
 }
